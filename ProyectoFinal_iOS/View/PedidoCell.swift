@@ -7,11 +7,31 @@
 
 import UIKit
 
-class PedidoCell: UITableViewCell {
+protocol PedidoCellDelegate {
+    
+    func button(_ button: UIButton, touchedIn cell: PedidoCell)
+}
 
+class PedidoCell: UITableViewCell {
+    
+    var delegate: PedidoCellDelegate?
+    @IBOutlet weak var btEditPedido: UIButton!
+    @IBOutlet weak var btDeletePedido: UIButton!
+    @IBOutlet weak var estatusPedido: UILabel!
+    @IBOutlet weak var imagePedido: UIImageView!
+    
+    
+    
+    @IBAction func buttonTouch(_ button: UIButton) {
+        if delegate != nil {
+            delegate!.button(button, touchedIn: self)
+        }
+    }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -19,5 +39,6 @@ class PedidoCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
 
 }

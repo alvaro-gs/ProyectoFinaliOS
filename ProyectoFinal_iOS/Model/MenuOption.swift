@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MenuOptions {
+struct MenuOption {
     let title : String
     let image : String
 }

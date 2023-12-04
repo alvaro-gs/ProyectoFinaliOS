@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct Producto : Codable {
+    let id : Int
+    let image : String
+    let name: String
+}
