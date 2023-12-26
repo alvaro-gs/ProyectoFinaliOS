@@ -2,7 +2,7 @@
 //  Pedido+CoreDataClass.swift
 //  ProyectoFinal_iOS
 //
-//  Created by Álvaro Gómez Segovia on 25/11/23.
+//  Created by Álvaro Gómez Segovia on 13/12/23.
 //
 //
 
