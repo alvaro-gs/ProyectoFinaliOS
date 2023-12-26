@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class DireccionViewController: UIViewController {
     
@@ -15,7 +16,7 @@ class DireccionViewController: UIViewController {
     @IBOutlet weak var streetLabel: UILabel!
     @IBOutlet weak var enterStreet: UITextField!
     @IBOutlet weak var suburbLabel: UILabel!
-    @IBOutlet weak var enterSunurb: UITextField!
+    @IBOutlet weak var enterSuburb: UITextField!
     @IBOutlet weak var postalCodeLabel: UILabel!
     @IBOutlet weak var enterPostalCode: UITextField!
     @IBOutlet weak var notesLabel: UILabel!
@@ -27,50 +28,89 @@ class DireccionViewController: UIViewController {
     var pedido: Pedido?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var pedidoManager: PedidoDataManager?
+    var user : FirebaseAuth.User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        rbDomicilio.isSelected = false
-        rbSucursal.isSelected = false
-        titleLabel.isHidden = true
-        streetLabel.isHidden = true
-        enterStreet.isHidden = true
-        suburbLabel.isHidden = true
-        enterSunurb.isHidden = true
-        postalCodeLabel.isHidden = true
-        enterPostalCode.isHidden = true
-        notesLabel.isHidden = true
-        enterNotes.isHidden = true
-         
+        navigationItem.title = "Elige cómo quieres recibir el pedido"
+        
+        user = Auth.auth().currentUser
+        
+        if pedido != nil {
+            if pedido?.postalCode == -1 {
+                rbDomicilio.isSelected = false
+                rbSucursal.isSelected = true
+                titleLabel.isHidden = true
+                streetLabel.isHidden = true
+                enterStreet.isHidden = true
+                suburbLabel.isHidden = true
+                enterSuburb.isHidden = true
+                postalCodeLabel.isHidden = true
+                enterPostalCode.isHidden = true
+                notesLabel.isHidden = true
+                enterNotes.isHidden = true
+                 
+                
+            }else{
+                rbDomicilio.isSelected = true
+                rbSucursal.isSelected = false
+                enterStreet.text = pedido?.street
+                enterSuburb.text = pedido?.suburb
+                enterPostalCode.text = pedido?.postalCode.description
+                enterNotes.text = pedido?.notes ?? ""
+                 
+                
+            }
+        }
+        else {
+            rbDomicilio.isSelected = false
+            rbSucursal.isSelected = false
+            titleLabel.isHidden = true
+            streetLabel.isHidden = true
+            enterStreet.isHidden = true
+            suburbLabel.isHidden = true
+            enterSuburb.isHidden = true
+            postalCodeLabel.isHidden = true
+            enterPostalCode.isHidden = true
+            notesLabel.isHidden = true
+            enterNotes.isHidden = true
+        }
+        
          
         // Do any additional setup after loading the view.
     }
     
     
     
-     @IBAction func rbAction(_ sender: UIButton) {
-         if sender.tag == 2 {
+     @IBAction func rbAction(_ button: UIButton) {
+         if button.tag == 2 {
              rbDomicilio.isSelected = true
              rbSucursal.isSelected = false
              titleLabel.isHidden = false
              streetLabel.isHidden = false
              enterStreet.isHidden = false
              suburbLabel.isHidden = false
-             enterSunurb.isHidden = false
+             enterSuburb.isHidden = false
              postalCodeLabel.isHidden = false
              enterPostalCode.isHidden = false
              notesLabel.isHidden = false
              enterNotes.isHidden = false
+             if pedido != nil {
+                 enterStreet.text = pedido?.street
+                 enterSuburb.text = pedido?.suburb
+                 enterPostalCode.text = pedido?.postalCode.description
+                 enterNotes.text = pedido?.notes ?? ""
+             }
          }
-         else if sender.tag == 1 {
+         else if button.tag == 1 {
              rbDomicilio.isSelected = false
              rbSucursal.isSelected = true
              titleLabel.isHidden = true
              streetLabel.isHidden = true
              enterStreet.isHidden = true
              suburbLabel.isHidden = true
-             enterSunurb.isHidden = true
+             enterSuburb.isHidden = true
              postalCodeLabel.isHidden = true
              enterPostalCode.isHidden = true
              notesLabel.isHidden = true
@@ -86,7 +126,7 @@ class DireccionViewController: UIViewController {
             pedido = Pedido (context: context)
         }
         let destination = segue.destination as! ListaPedidosViewController
-        pedido?.userId = ""
+        pedido?.userId = user?.uid
         pedido?.name = producto?.name
         pedido?.imageURL = producto?.image
         let productoId = Int64(producto!.id)
@@ -97,7 +137,7 @@ class DireccionViewController: UIViewController {
         pedido?.presentation = aux
          if rbDomicilio.isSelected{
              pedido?.street = enterStreet.text
-             pedido?.suburb = enterSunurb.text
+             pedido?.suburb = enterSuburb.text
              pedido?.postalCode = Int16(enterPostalCode.text!)!
              pedido?.notes = enterNotes.text
      
@@ -134,7 +174,7 @@ class DireccionViewController: UIViewController {
                  cpFlag = false
              }
              
-             if enterSunurb.text?.trimmingCharacters(in: CharacterSet.whitespaces).isEmpty == false {
+             if enterSuburb.text?.trimmingCharacters(in: CharacterSet.whitespaces).isEmpty == false {
                  suburbFlag = true
              }else{
                  cpFlag = false
@@ -153,17 +193,14 @@ class DireccionViewController: UIViewController {
              }
              
             flag = streetFlag && suburbFlag && cpFlag
-             print (flag.description)
              return flag
          }
          
          if rbSucursal.isSelected{
              flag = true
-             print (flag.description)
              return flag
          }
          flag = false
-         print (flag.description)
          return flag
      }
 

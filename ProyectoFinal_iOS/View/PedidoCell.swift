@@ -10,6 +10,7 @@ import UIKit
 protocol PedidoCellDelegate {
     
     func button(_ button: UIButton, touchedIn cell: PedidoCell)
+    //func image(_ image: UIImage,touchenIn cell: PedidoCell)
 }
 
 class PedidoCell: UITableViewCell {
@@ -26,13 +27,18 @@ class PedidoCell: UITableViewCell {
         if delegate != nil {
             delegate!.button(button, touchedIn: self)
         }
+        
+    
     }
     
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        //print("abbbb")
         
     }
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

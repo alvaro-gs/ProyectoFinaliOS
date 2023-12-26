@@ -10,13 +10,20 @@ import SDWebImage
 
 class NuevoPedidoViewController: UIViewController {
     
+    @IBOutlet weak var labelProductos: UILabel!
     @IBOutlet weak var pvProducto: UIPickerView!
     @IBOutlet weak var ivProducto: UIImageView!
     @IBOutlet weak var btNext: UIButton!
+    
     var producto: Producto?
     let productoService = ProductoService()
     var pedido: Pedido?
     
+    let buttonReload: UIButton = Utils.createButton(title:"Recargar", color: UIColor(named: "rojo")!)
+        
+    let progressBar: UIActivityIndicatorView = Utils.createProgressBar(color:UIColor(named: "azulFondo")!)
+    
+    let errorMessage: UILabel = Utils.createErrorMessage()
    
     
     override func viewDidLoad() {
@@ -24,34 +31,85 @@ class NuevoPedidoViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
+        if pedido == nil {
+            navigationItem.title = "Nuevo pedido"
+        }
+        else{
+            navigationItem.title = "Actualizar pedido"
+        }
+        
         pvProducto.dataSource = self
         pvProducto.delegate = self
         
-        productoService.loadProductos {
-            DispatchQueue.main.async{
-                self.pvProducto.reloadAllComponents()
-                
-                if (self.pedido == nil){
-                    self.producto = self.productoService.getProducto(at: 0)
-                    self.pvProducto.selectRow(0, inComponent: 0, animated: true)
-                }
-                else{
-                    let produdctoId = Int(self.pedido!.productoId)
-                    self.producto = self.productoService.getProductoById(produdctoId)
-                    // Ver como arreglar esto despues
-                    self.pvProducto.selectRow((produdctoId - 1), inComponent: 0, animated: true)
+        labelProductos.isHidden = true
+        pvProducto.isHidden = true
+        ivProducto.isHidden = true
+        btNext.isHidden = true
+        
+        load()
+        
+    }
+    
+    private func load () {
+        view.addSubview(progressBar)
+        progressBar.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        progressBar.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        progressBar.startAnimating()
+        if InternetMonitor.shared.internetStatus{
+            productoService.loadProductos {
+                DispatchQueue.main.async{
+                    
+                    self.progressBar.stopAnimating()
+                    
+                    self.pvProducto.reloadAllComponents()
+                    
+                    if (self.pedido == nil){
+                        self.producto = self.productoService.getProducto(at: 0)
+                        self.pvProducto.selectRow(0, inComponent: 0, animated: true)
+                    }
+                    else{
+                        let produdctoId = Int(self.pedido!.productoId)
+                        self.producto = self.productoService.getProductoById(produdctoId)
+                        // Ver como arreglar esto despues
+                        self.pvProducto.selectRow((produdctoId - 1), inComponent: 0, animated: true)
+                        
+                    }
+                    
+                    
+                    let imageURL = URL(string: self.producto!.image)
+                    self.ivProducto.sd_setImage(with: imageURL)
+                    
+                    self.labelProductos.isHidden = false
+                    self.pvProducto.isHidden = false
+                    self.ivProducto.isHidden = false
+                    self.btNext.isHidden = false
                     
                 }
                 
-                
-                let imageURL = URL(string: self.producto!.image)
-                self.ivProducto.sd_setImage(with: imageURL)
-                
             }
-                
+        }else{
+            progressBar.stopAnimating()
+            addNetworkConstraints()
         }
+    }
+    
+    
+    private func addNetworkConstraints(){
+        view.addSubview(buttonReload)
+        buttonReload.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        buttonReload.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
+        buttonReload.addTarget(self, action: #selector(reload), for: .touchUpInside)
         
-        
+        view.addSubview(errorMessage)
+        errorMessage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        errorMessage.topAnchor.constraint(equalTo: buttonReload.bottomAnchor, constant: 10).isActive = true
+    }
+    
+    @objc private func reload() {
+        progressBar.removeFromSuperview()
+        errorMessage.removeFromSuperview()
+        buttonReload.removeFromSuperview()
+        load()
     }
     
     @IBAction func btNextClicked(_ sender: Any) {

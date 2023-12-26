@@ -9,10 +9,12 @@ import UIKit
 
 class PresentacionViewController: UIViewController {
 
+    @IBOutlet weak var labelPresentaciones: UILabel!
     @IBOutlet weak var tvProductoSeleccionado: UILabel!
     @IBOutlet weak var pvPresentaciones: UIPickerView!
     @IBOutlet weak var tvTotalPagar: UILabel!
     @IBOutlet weak var btSend: UIButton!
+    
     var producto: Producto?
     let productoService = ProductoService()
     private var listaPresentaciones : [Presentations] = []
@@ -21,35 +23,84 @@ class PresentacionViewController: UIViewController {
     var totalPagar = 0.0
     var pedido: Pedido?
     
+    let buttonReload: UIButton = Utils.createButton(title:"Recargar", color: UIColor(named: "rojo")!)
+        
+    let progressBar: UIActivityIndicatorView = Utils.createProgressBar(color:UIColor(named: "azulFondo")!)
+    
+    let errorMessage: UILabel = Utils.createErrorMessage()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.title = "Elige una presentación"
         
-         pvPresentaciones.dataSource = self
-         pvPresentaciones.delegate = self
+        pvPresentaciones.dataSource = self
+        pvPresentaciones.delegate = self
         
-        tvProductoSeleccionado.text = producto?.name
-        
-        productoService.loadDetalleProducto(productoID: (producto?.id.description)!){ detalleProducto in
-            DispatchQueue.main.async {
-                if detalleProducto != nil {
+        labelPresentaciones.isHidden = true
+        tvProductoSeleccionado.isHidden = true
+        pvPresentaciones.isHidden = true
+        tvTotalPagar.isHidden = true
+        btSend.isHidden = true
+
+        load()
+    
+    }
+    
+    private func load (){
+        view.addSubview(progressBar)
+        progressBar.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        progressBar.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        progressBar.startAnimating()
+        if InternetMonitor.shared.internetStatus {
+            productoService.loadDetalleProducto(productoID: (producto?.id.description)!){ detalleProducto in
+                DispatchQueue.main.async {
                     
-                    self.listaPresentaciones = detalleProducto!.presentations
-                    self.pvPresentaciones.reloadAllComponents()
-                    self.presentacionId = 0
-                    self.totalPagar = self.listaPresentaciones[0].price
-                    self.tvTotalPagar.text = "Total a pagar: " + self.totalPagar.description
+                    if detalleProducto != nil {
+                        
+                        self.progressBar.stopAnimating()
+                        
+                        self.tvProductoSeleccionado.text = detalleProducto?.name
+                        self.listaPresentaciones = detalleProducto!.presentations
+                        self.pvPresentaciones.reloadAllComponents()
+                        self.presentacionId = 0
+                        self.totalPagar = self.listaPresentaciones[0].price
+                        self.tvTotalPagar.text = "Total a pagar: " + self.totalPagar.description
+                        
+                        self.labelPresentaciones.isHidden = false
+                        self.tvProductoSeleccionado.isHidden = false
+                        self.pvPresentaciones.isHidden = false
+                        self.tvTotalPagar.isHidden = false
+                        self.btSend.isHidden = false
+                        
+                    }
                     
                 }
                 
             }
-            
+        }else{
+            progressBar.stopAnimating()
+            addNetworkConstraints()
         }
-         
-        // Do any additional setup after loading the view.
+    }
+
+    private func addNetworkConstraints(){
+        view.addSubview(buttonReload)
+        buttonReload.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        buttonReload.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
+        buttonReload.addTarget(self, action: #selector(reload), for: .touchUpInside)
+        
+        view.addSubview(errorMessage)
+        errorMessage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        errorMessage.topAnchor.constraint(equalTo: buttonReload.bottomAnchor, constant: 10).isActive = true
     }
     
-
+    @objc private func reload() {
+        progressBar.removeFromSuperview()
+        errorMessage.removeFromSuperview()
+        buttonReload.removeFromSuperview()
+        load()
+    }
     
     // MARK: - Navigation
 
@@ -94,7 +145,6 @@ extension PresentacionViewController :  UIPickerViewDelegate,UIPickerViewDataSou
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         presentacionId = row
-        //print(presentacionId.description)
         totalPagar = listaPresentaciones[row].price
         tvTotalPagar.text = "Total a pagar: " + totalPagar.description
     }

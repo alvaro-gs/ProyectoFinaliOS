@@ -11,6 +11,9 @@ import FirebaseAuth
 class ConfiguracionViewController: UIViewController {
     
     @IBOutlet weak var tableOptions: UITableView!
+    
+    let cellSpacingHeight : CGFloat = 1
+    
     let menuOptions : [MenuOption] = [
             MenuOption(
                 title:"Configuración",
@@ -24,6 +27,7 @@ class ConfiguracionViewController: UIViewController {
         ]
 
     override func viewDidLoad() {
+        navigationItem.title = "Menú"
         super.viewDidLoad()
         tableOptions.delegate = self
         tableOptions.dataSource = self
@@ -44,23 +48,30 @@ class ConfiguracionViewController: UIViewController {
 }
 
 extension ConfiguracionViewController: UITableViewDelegate,UITableViewDataSource{
+    
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return menuOptions.count
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menuOptions.count
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return cellSpacingHeight
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath) as! MenuCell
-        cell.menuOptionLabel.text = menuOptions[indexPath.row].title
-        cell.menuOptionImage.image = UIImage(systemName: menuOptions[indexPath.row].image)
+        cell.menuOptionLabel.text = menuOptions[indexPath.section].title
+        cell.menuOptionImage.image = UIImage(systemName: menuOptions[indexPath.section].image)
+        cell.layer.cornerRadius = 8
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 2{
+        if indexPath.section == 2{
             
             do{
                 try Auth.auth().signOut()

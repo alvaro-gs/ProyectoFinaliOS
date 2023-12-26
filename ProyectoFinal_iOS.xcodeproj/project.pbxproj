@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B0FBE382B1D5FEF004FCE6F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B0FBE372B1D5FEF004FCE6F /* GoogleService-Info.plist */; };
 		0B0FBE3B2B1D60BE004FCE6F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0B0FBE3A2B1D60BE004FCE6F /* FirebaseAnalytics */; };
 		0B0FBE3D2B1D60BE004FCE6F /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 0B0FBE3C2B1D60BE004FCE6F /* FirebaseAnalyticsOnDeviceConversion */; };
 		0B0FBE3F2B1D60BE004FCE6F /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0B0FBE3E2B1D60BE004FCE6F /* FirebaseAnalyticsSwift */; };
@@ -17,13 +16,12 @@
 		0B0FBE482B1D80D6004FCE6F /* ConfiguracionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0FBE472B1D80D6004FCE6F /* ConfiguracionViewController.swift */; };
 		0B0FBE4A2B1D83CE004FCE6F /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0FBE492B1D83CE004FCE6F /* MenuCell.swift */; };
 		0B0FBE4C2B1D85E4004FCE6F /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0FBE4B2B1D85E4004FCE6F /* MenuOption.swift */; };
-		0B3C6BF82B1286C100D50456 /* Pedido+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C6BF62B1286C100D50456 /* Pedido+CoreDataClass.swift */; };
-		0B3C6BF92B1286C100D50456 /* Pedido+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C6BF72B1286C100D50456 /* Pedido+CoreDataProperties.swift */; };
 		0B578AA32B086E9A00CC2D63 /* PresentacionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B578AA22B086E9A00CC2D63 /* PresentacionViewController.swift */; };
 		0B578AA52B086EAC00CC2D63 /* DireccionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B578AA42B086EAC00CC2D63 /* DireccionViewController.swift */; };
 		0B607ECC2ACE4DDB00D09466 /* PedidoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B607ECB2ACE4DDB00D09466 /* PedidoCell.swift */; };
 		0B607ECE2ACE503500D09466 /* PedidoDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B607ECD2ACE503500D09466 /* PedidoDataManager.swift */; };
 		0B607ED52ACE60B700D09466 /* ListaPedidosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B607ED42ACE60B700D09466 /* ListaPedidosViewController.swift */; };
+		0B68A7B62B267B5B00243F5F /* EditarPedidoAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B68A7B52B267B5B00243F5F /* EditarPedidoAdminViewController.swift */; };
 		0B96F8CF2A8EE6C30079B4C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F8CE2A8EE6C30079B4C9 /* AppDelegate.swift */; };
 		0B96F8D12A8EE6C30079B4C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F8D02A8EE6C30079B4C9 /* SceneDelegate.swift */; };
 		0B96F8D92A8EE6C30079B4C9 /* ProyectoFinal_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F8D72A8EE6C30079B4C9 /* ProyectoFinal_iOS.xcdatamodeld */; };
@@ -34,6 +32,8 @@
 		0B96F8EF2A8EF4820079B4C9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F8EE2A8EF4820079B4C9 /* RegisterViewController.swift */; };
 		0B96F8F12A8F17730079B4C9 /* NuevoPedidoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F8F02A8F17730079B4C9 /* NuevoPedidoViewController.swift */; };
 		0B96F8F72A8F33B20079B4C9 /* DetallePedidoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F8F62A8F33B20079B4C9 /* DetallePedidoViewController.swift */; };
+		0BA2C6992B2A86C1005BEE8D /* Pedido+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA2C6972B2A86C1005BEE8D /* Pedido+CoreDataClass.swift */; };
+		0BA2C69A2B2A86C1005BEE8D /* Pedido+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA2C6982B2A86C1005BEE8D /* Pedido+CoreDataProperties.swift */; };
 		0BB70CF02AD8D65D00559E7D /* CatalogoProductosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB70CEF2AD8D65D00559E7D /* CatalogoProductosViewController.swift */; };
 		0BB70CF22AD8D9D500559E7D /* ProductoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB70CF12AD8D9D500559E7D /* ProductoCell.swift */; };
 		0BB70CF52AD8DE2400559E7D /* ProductoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB70CF42AD8DE2400559E7D /* ProductoService.swift */; };
@@ -42,21 +42,23 @@
 		0BB70D032AD8F17900559E7D /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0BB70D022AD8F17900559E7D /* SDWebImage */; };
 		0BB70D052AD8F17900559E7D /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0BB70D042AD8F17900559E7D /* SDWebImageMapKit */; };
 		0BB70D072AD90F6C00559E7D /* DetalleProducto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB70D062AD90F6C00559E7D /* DetalleProducto.swift */; };
+		0BC524522B377906004512C7 /* InternetMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC524512B377906004512C7 /* InternetMonitor.swift */; };
+		0BC524542B3782E9004512C7 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC524532B3782E9004512C7 /* Utils.swift */; };
+		0BF8D6842B1ECA0F00BA58C0 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF8D6832B1ECA0F00BA58C0 /* CustomTabBarController.swift */; };
+		0BF8D6862B1ECC0200BA58C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0BF8D6852B1ECC0200BA58C0 /* GoogleService-Info.plist */; };
 		0BFBA6792AE239D100583E4D /* DetalleProductoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFBA6782AE239D100583E4D /* DetalleProductoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0B0FBE372B1D5FEF004FCE6F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0B0FBE472B1D80D6004FCE6F /* ConfiguracionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfiguracionViewController.swift; sourceTree = "<group>"; };
 		0B0FBE492B1D83CE004FCE6F /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		0B0FBE4B2B1D85E4004FCE6F /* MenuOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOption.swift; sourceTree = "<group>"; };
-		0B3C6BF62B1286C100D50456 /* Pedido+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pedido+CoreDataClass.swift"; sourceTree = "<group>"; };
-		0B3C6BF72B1286C100D50456 /* Pedido+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pedido+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0B578AA22B086E9A00CC2D63 /* PresentacionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentacionViewController.swift; sourceTree = "<group>"; };
 		0B578AA42B086EAC00CC2D63 /* DireccionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DireccionViewController.swift; sourceTree = "<group>"; };
 		0B607ECB2ACE4DDB00D09466 /* PedidoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedidoCell.swift; sourceTree = "<group>"; };
 		0B607ECD2ACE503500D09466 /* PedidoDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedidoDataManager.swift; sourceTree = "<group>"; };
 		0B607ED42ACE60B700D09466 /* ListaPedidosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaPedidosViewController.swift; sourceTree = "<group>"; };
+		0B68A7B52B267B5B00243F5F /* EditarPedidoAdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarPedidoAdminViewController.swift; sourceTree = "<group>"; };
 		0B96F8CB2A8EE6C30079B4C9 /* ProyectoFinal_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProyectoFinal_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B96F8CE2A8EE6C30079B4C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B96F8D02A8EE6C30079B4C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,12 +71,18 @@
 		0B96F8EE2A8EF4820079B4C9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		0B96F8F02A8F17730079B4C9 /* NuevoPedidoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NuevoPedidoViewController.swift; sourceTree = "<group>"; };
 		0B96F8F62A8F33B20079B4C9 /* DetallePedidoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetallePedidoViewController.swift; sourceTree = "<group>"; };
+		0BA2C6972B2A86C1005BEE8D /* Pedido+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pedido+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0BA2C6982B2A86C1005BEE8D /* Pedido+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pedido+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0BB70CEF2AD8D65D00559E7D /* CatalogoProductosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogoProductosViewController.swift; sourceTree = "<group>"; };
 		0BB70CF12AD8D9D500559E7D /* ProductoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductoCell.swift; sourceTree = "<group>"; };
 		0BB70CF42AD8DE2400559E7D /* ProductoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductoService.swift; sourceTree = "<group>"; };
 		0BB70CF62AD8DE6100559E7D /* Producto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Producto.swift; sourceTree = "<group>"; };
 		0BB70CF92AD8E02300559E7D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0BB70D062AD90F6C00559E7D /* DetalleProducto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalleProducto.swift; sourceTree = "<group>"; };
+		0BC524512B377906004512C7 /* InternetMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetMonitor.swift; sourceTree = "<group>"; };
+		0BC524532B3782E9004512C7 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		0BF8D6832B1ECA0F00BA58C0 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		0BF8D6852B1ECC0200BA58C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0BFBA6782AE239D100583E4D /* DetalleProductoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalleProductoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,8 +115,8 @@
 		0B96F8C22A8EE6C30079B4C9 = {
 			isa = PBXGroup;
 			children = (
-				0B3C6BF62B1286C100D50456 /* Pedido+CoreDataClass.swift */,
-				0B3C6BF72B1286C100D50456 /* Pedido+CoreDataProperties.swift */,
+				0BA2C6972B2A86C1005BEE8D /* Pedido+CoreDataClass.swift */,
+				0BA2C6982B2A86C1005BEE8D /* Pedido+CoreDataProperties.swift */,
 				0B96F8CD2A8EE6C30079B4C9 /* ProyectoFinal_iOS */,
 				0B96F8CC2A8EE6C30079B4C9 /* Products */,
 				0B0FBE442B1D667C004FCE6F /* Frameworks */,
@@ -127,7 +135,8 @@
 		0B96F8CD2A8EE6C30079B4C9 /* ProyectoFinal_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				0B0FBE372B1D5FEF004FCE6F /* GoogleService-Info.plist */,
+				0BC524502B3778F0004512C7 /* Utils */,
+				0BF8D6852B1ECC0200BA58C0 /* GoogleService-Info.plist */,
 				0BB70CF82AD8E01600559E7D /* Constants */,
 				0BB70CF32AD8DE0500559E7D /* Service */,
 				0B96F8EB2A8EEA2C0079B4C9 /* Controller */,
@@ -178,6 +187,8 @@
 				0B578AA22B086E9A00CC2D63 /* PresentacionViewController.swift */,
 				0B578AA42B086EAC00CC2D63 /* DireccionViewController.swift */,
 				0B0FBE472B1D80D6004FCE6F /* ConfiguracionViewController.swift */,
+				0BF8D6832B1ECA0F00BA58C0 /* CustomTabBarController.swift */,
+				0B68A7B52B267B5B00243F5F /* EditarPedidoAdminViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -196,6 +207,15 @@
 				0BB70CF92AD8E02300559E7D /* Constants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		0BC524502B3778F0004512C7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0BC524512B377906004512C7 /* InternetMonitor.swift */,
+				0BC524532B3782E9004512C7 /* Utils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,7 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B96F8E82A8EE75A0079B4C9 /* Main.storyboard in Resources */,
-				0B0FBE382B1D5FEF004FCE6F /* GoogleService-Info.plist in Resources */,
+				0BF8D6862B1ECC0200BA58C0 /* GoogleService-Info.plist in Resources */,
 				0B96F8DE2A8EE6C40079B4C9 /* LaunchScreen.storyboard in Resources */,
 				0B96F8DB2A8EE6C40079B4C9 /* Assets.xcassets in Resources */,
 			);
@@ -284,8 +304,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BC524522B377906004512C7 /* InternetMonitor.swift in Sources */,
 				0B96F8ED2A8EECB70079B4C9 /* LoginViewController.swift in Sources */,
 				0BB70CFA2AD8E02300559E7D /* Constants.swift in Sources */,
+				0BC524542B3782E9004512C7 /* Utils.swift in Sources */,
 				0BFBA6792AE239D100583E4D /* DetalleProductoViewController.swift in Sources */,
 				0B607ECC2ACE4DDB00D09466 /* PedidoCell.swift in Sources */,
 				0B96F8F72A8F33B20079B4C9 /* DetallePedidoViewController.swift in Sources */,
@@ -295,14 +317,16 @@
 				0B0FBE4A2B1D83CE004FCE6F /* MenuCell.swift in Sources */,
 				0B96F8EF2A8EF4820079B4C9 /* RegisterViewController.swift in Sources */,
 				0BB70CF52AD8DE2400559E7D /* ProductoService.swift in Sources */,
-				0B3C6BF92B1286C100D50456 /* Pedido+CoreDataProperties.swift in Sources */,
+				0B68A7B62B267B5B00243F5F /* EditarPedidoAdminViewController.swift in Sources */,
+				0BF8D6842B1ECA0F00BA58C0 /* CustomTabBarController.swift in Sources */,
 				0B607ECE2ACE503500D09466 /* PedidoDataManager.swift in Sources */,
+				0BA2C6992B2A86C1005BEE8D /* Pedido+CoreDataClass.swift in Sources */,
 				0B607ED52ACE60B700D09466 /* ListaPedidosViewController.swift in Sources */,
+				0BA2C69A2B2A86C1005BEE8D /* Pedido+CoreDataProperties.swift in Sources */,
 				0B578AA32B086E9A00CC2D63 /* PresentacionViewController.swift in Sources */,
 				0BB70CF02AD8D65D00559E7D /* CatalogoProductosViewController.swift in Sources */,
 				0BB70CF72AD8DE6100559E7D /* Producto.swift in Sources */,
 				0B96F8CF2A8EE6C30079B4C9 /* AppDelegate.swift in Sources */,
-				0B3C6BF82B1286C100D50456 /* Pedido+CoreDataClass.swift in Sources */,
 				0B96F8D12A8EE6C30079B4C9 /* SceneDelegate.swift in Sources */,
 				0B96F8D92A8EE6C30079B4C9 /* ProyectoFinal_iOS.xcdatamodeld in Sources */,
 				0B96F8F12A8F17730079B4C9 /* NuevoPedidoViewController.swift in Sources */,
@@ -456,8 +480,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -484,8 +507,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
