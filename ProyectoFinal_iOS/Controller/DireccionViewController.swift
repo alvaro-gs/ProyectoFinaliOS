@@ -158,7 +158,22 @@ class DireccionViewController: UIViewController {
      }
      
      override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-         return validateFields()
+         var flag = validateFields()
+         if flag == false {
+             if rbDomicilio.isSelected {
+                 let ac = UIAlertController(title: "Llenar campos", message:"Favor de llenar los campos: Calle, Colonia y Código Postal", preferredStyle: .alert)
+                 let action1 = UIAlertAction(title: "Aceptar", style: .default)
+                 ac.addAction(action1)
+                 self.present(ac, animated: true)
+             } else{
+                 let ac = UIAlertController(title: "Selecionar una opción", message:"Favor de Seleccionar una opción", preferredStyle: .alert)
+                 let action1 = UIAlertAction(title: "Aceptar", style: .default)
+                 ac.addAction(action1)
+                 self.present(ac, animated: true)
+             }
+            
+         }
+         return flag
      }
      
      func validateFields() -> Bool {
